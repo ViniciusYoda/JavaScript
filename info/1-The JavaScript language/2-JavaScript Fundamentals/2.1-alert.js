@@ -1,0 +1,1 @@
+alert('Eu sou o JavaScript! Eu sou executado!');
