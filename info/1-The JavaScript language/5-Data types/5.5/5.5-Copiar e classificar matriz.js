@@ -1,10 +1,14 @@
-function copySorted(arr) {
-    return arr.slice().sort()
+/**
+ * Retorna uma cópia ordenada (case-insensitive) do array de strings.
+ * @param {string[]} array
+ * @returns {string[]}
+ */
+function copySorted(array) {
+    return array.slice().sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
 }
 
-let arr = ["HTML", "JavaScript", "CSS"];
+const languages = ["HTML", "JavaScript", "CSS"];
+const sortedLanguages = copySorted(languages);
 
-let sorted = copySorted(arr);
-
-console.log(sorted)
-console.log(arr)
+console.log(sortedLanguages); // [ 'CSS', 'HTML', 'JavaScript' ]
+console.log(languages);       // [ 'HTML', 'JavaScript', 'CSS' ]

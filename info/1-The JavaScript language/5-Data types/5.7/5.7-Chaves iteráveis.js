@@ -1,9 +1,12 @@
-let map = new Map();
+// Cria um novo Map e adiciona um par chave-valor
+const map = new Map();
+map.set("name", "John");
 
-map.set("name", "John")
+// Obtém um array das chaves do Map
+const keys = [...map.keys()];
 
-let keys = Array.from(map.keys())
+// Adiciona uma nova chave ao array (não ao Map)
+keys.push("MORE");
 
-keys.push("MORE")
-
-console.log(keys)
+// Exibe o array de chaves
+console.log(keys); // ["name", "MORE"]

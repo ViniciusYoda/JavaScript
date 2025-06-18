@@ -1,16 +1,28 @@
-let messages = [
-  {text: "Hello", from: "John"},
-  {text: "How goes?", from: "John"},
-  {text: "See you soon", from: "Alice"}
+// Lista de mensagens
+const messages = [
+  { text: "Hello", from: "John" },
+  { text: "How goes?", from: "John" },
+  { text: "See you soon", from: "Alice" }
 ];
 
-let readMessages = new WeakSet();
+// WeakSet para armazenar mensagens lidas
+const readMessages = new WeakSet();
 
-readMessages.add(messages[0])
-readMessages.add(messages[1]);
+// Marca mensagens como lidas
+function markAsRead(message) {
+  readMessages.add(message);
+}
 
-readMessages.add(messages[0]);
+// Verifica se a mensagem foi lida
+function isRead(message) {
+  return readMessages.has(message);
+}
 
-console.log("Read message 0: " + readMessages.has(messages[0]))
+// Exemplo de uso
+markAsRead(messages[0]);
+markAsRead(messages[1]);
 
-messages.shift()
+console.log("Read message 0:", isRead(messages[0])); // true
+
+// Remove a primeira mensagem
+messages.shift();
